@@ -40,7 +40,7 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 
 ## Requisitos
 
-- Python 3.x
+- Python 3.9.6
 
 - Instalar dependencias con:
 
