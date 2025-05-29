@@ -50,7 +50,7 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 
 | Programa           |                                             |
 | ------------------ | ------------------------------------------- |
-| Programa.py        | Archivo con instrucciones y guia de usuario |
+| Programa.py        | Programa.py |
 | readme.md          | Archivo con instrucciones y guia de usuario |
 | requerimientos.txt | Archivo con instalador de librerias         |
 
