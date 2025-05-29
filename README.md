@@ -4,7 +4,7 @@
 
 ### Fecha: 29/05/25
 
-### Lenguaje: Python 3
+### Lenguaje: Python
 
 ## Descripción
 
