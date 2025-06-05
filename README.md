@@ -50,7 +50,7 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 
 | Programa           |                                             |
 | ------------------ | ------------------------------------------- |
-| Programa.py        | Programa.py |
+| main.py        | Programa en python |
 | readme.md          | Archivo con instrucciones y guia de usuario |
 | requerimientos.txt | Archivo con instalador de librerias         |
 
@@ -64,6 +64,6 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 
 3. Ejecutar el programa
 
-- `python ejercicio2.py`
+- `python main.py`
 
 4. Cargar los datos y correr el programa
