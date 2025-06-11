@@ -1,66 +1,77 @@
-def ingresar_datos(cantidad):
-    unidades = []
-    superficies = []
+def ingresar_datos(cantidad_unidades):
+    lista_unidades = []
+    lista_superficies = []
     i = 0
-    while i < cantidad:
-        nro = int(input(f"Unidad #{i+1} - Ingrese numero de unidad: "))
-        if nro in unidades:
-            print("Numero de unidad ya ingresado. Ingrese otro.")
+    while i < cantidad_unidades:
+        numero = int(input(f"Unidad #{i+1} - Ingrese número de unidad: "))
+        if numero in lista_unidades:
+            print("Número de unidad ya ingresado. Ingrese otro.")
             continue
-        sup = float(input("Ingrese la superficie en m2: "))
-        unidades.append(nro)
-        superficies.append(sup)
+        superficie = float(input("Ingrese la superficie en m2: "))
+        lista_unidades.append(numero)
+        lista_superficies.append(superficie)
         i += 1
-    return unidades, superficies
+    return lista_unidades, lista_superficies
 
 
-def calcular_promedio(superficies, valor_m2):
-    gastos = [sup * valor_m2 for sup in superficies]
-    promedio = sum(gastos) / len(superficies)
-    return promedio, gastos
+def calcular_promedio(lista_superficies, valor_metro2):
+    lista_gastos = [sup * valor_metro2 for sup in lista_superficies]
+    promedio_gastos = sum(lista_gastos) / len(lista_superficies)
+    return promedio_gastos, lista_gastos
 
 
-def ordenar_descendente(unidades, superficies):
-    for i in range(len(superficies) - 1):
-        for j in range(i + 1, len(superficies)):
-            if superficies[i] < superficies[j]:
-                superficies[i], superficies[j] = superficies[j], superficies[i]
-                unidades[i], unidades[j] = unidades[j], unidades[i]
-    return unidades, superficies
+def ordenar_descendente(lista_unidades, lista_superficies, lista_gastos):
+    for i in range(len(lista_superficies) - 1):
+        for j in range(i + 1, len(lista_superficies)):
+            if lista_superficies[i] < lista_superficies[j]:
+                lista_superficies[i], lista_superficies[j] = lista_superficies[j], lista_superficies[i]
+                lista_unidades[i], lista_unidades[j] = lista_unidades[j], lista_unidades[i]
+                lista_gastos[i], lista_gastos[j] = lista_gastos[j], lista_gastos[i]
+    return lista_unidades, lista_superficies, lista_gastos
 
 
-def ordenar_ascendente(unidades, superficies):
-    for i in range(len(superficies) - 1):
-        for j in range(i + 1, len(superficies)):
-            if superficies[i] > superficies[j]:
-                superficies[i], superficies[j] = superficies[j], superficies[i]
-                unidades[i], unidades[j] = unidades[j], unidades[i]
-    return unidades, superficies
+def ordenar_ascendente(lista_unidades, lista_superficies, lista_gastos):
+    for i in range(len(lista_superficies) - 1):
+        for j in range(i + 1, len(lista_superficies)):
+            if lista_superficies[i] > lista_superficies[j]:
+                lista_superficies[i], lista_superficies[j] = lista_superficies[j], lista_superficies[i]
+                lista_unidades[i], lista_unidades[j] = lista_unidades[j], lista_unidades[i]
+                lista_gastos[i], lista_gastos[j] = lista_gastos[j], lista_gastos[i]
+    return lista_unidades, lista_superficies, lista_gastos
 
 
-def mostrar_tabla(unidades, superficies, titulo):
-    print(f"\n{titulo}")
-    print(f"{'Unidad':<10} {'Superficie (m2)':>20}")
-    print("-" * 30)
-    for i in range(len(unidades)):
-        print(f"{unidades[i]:<10} {superficies[i]:>20.2f}")
+def mostrar_tabla(lista_unidades, lista_superficies, lista_gastos, titulo_tabla):
+    print("\n" + "=" * 70)
+    print(f"{titulo_tabla.center(70)}")
+    print("=" * 70)
+    print(f"+{'-'*10}+{'-'*20}+{'-'*20}+")
+    print(f"| {'Unidad':<8} | {'Superficie (m2)':>18} | {'Gasto mensual':>18} |")
+    print(f"+{'-'*10}+{'-'*20}+{'-'*20}+")
+    for i in range(len(lista_unidades)):
+        print(
+            f"| {lista_unidades[i]:<8} | {lista_superficies[i]:>18.2f} | ${lista_gastos[i]:>17.2f} |")
+    print(f"+{'-'*10}+{'-'*20}+{'-'*20}+")
 
 
 if __name__ == "__main__":
-    cantidad = int(input("Ingrese la cantidad de departamentos: "))
-    valor_m2 = float(input("Ingrese el valor de gasto por metro cuadrado: "))
-    unidades, superficies = ingresar_datos(cantidad)
-    promedio, gastos = calcular_promedio(superficies, valor_m2)
-    print(f"\nPromedio de gastos del mes: ${promedio:.2f}")
+    cantidad_unidades = int(input("Ingrese la cantidad de departamentos: "))
+    valor_metro2 = float(
+        input("Ingrese el valor de gasto por metro cuadrado: "))
+    lista_unidades, lista_superficies = ingresar_datos(cantidad_unidades)
+    promedio_gastos, lista_gastos = calcular_promedio(
+        lista_superficies, valor_metro2)
+    print(f"\nPromedio de gastos del mes: ${promedio_gastos:.2f}")
 
-    # Mostrar descendente
-    unidades_desc, superficies_desc = ordenar_descendente(
-        unidades.copy(), superficies.copy())
+    # Orden descendente
+    unidades_desc, superficies_desc, gastos_desc = ordenar_descendente(
+        lista_unidades.copy(), lista_superficies.copy(), lista_gastos.copy()
+    )
     mostrar_tabla(unidades_desc, superficies_desc,
-                  "Listado ordenado por superficie (mayor a menor):")
+                  gastos_desc, "Ordenado de mayor a menor")
 
-    # Mostrar ascendente
-    unidades_asc, superficies_asc = ordenar_ascendente(
-        unidades.copy(), superficies.copy())
+    # Orden ascendente
+    unidades_asc, superficies_asc, gastos_asc = ordenar_ascendente(
+        lista_unidades.copy(), lista_superficies.copy(), lista_gastos.copy()
+    )
     mostrar_tabla(unidades_asc, superficies_asc,
-                  "Listado ordenado por superficie (menor a mayor):")
+                  gastos_asc, "Ordenado de menor a mayor")
