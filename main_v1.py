@@ -1,6 +1,3 @@
-from tabulate import tabulate
-
-
 def ingresar_datos(cantidad):
     unidades = []
     superficies = []
@@ -32,10 +29,21 @@ def ordenar_descendente(unidades, superficies):
     return unidades, superficies
 
 
-def mostrar_tabla(unidades, superficies):
-    tabla = list(zip(unidades, superficies))
-    headers = ["Unidad", "Superficie (m2)"]
-    print(tabulate(tabla, headers=headers, tablefmt="grid"))
+def ordenar_ascendente(unidades, superficies):
+    for i in range(len(superficies) - 1):
+        for j in range(i + 1, len(superficies)):
+            if superficies[i] > superficies[j]:
+                superficies[i], superficies[j] = superficies[j], superficies[i]
+                unidades[i], unidades[j] = unidades[j], unidades[i]
+    return unidades, superficies
+
+
+def mostrar_tabla(unidades, superficies, titulo):
+    print(f"\n{titulo}")
+    print(f"{'Unidad':<10} {'Superficie (m2)':>20}")
+    print("-" * 30)
+    for i in range(len(unidades)):
+        print(f"{unidades[i]:<10} {superficies[i]:>20.2f}")
 
 
 if __name__ == "__main__":
@@ -44,5 +52,15 @@ if __name__ == "__main__":
     unidades, superficies = ingresar_datos(cantidad)
     promedio, gastos = calcular_promedio(superficies, valor_m2)
     print(f"\nPromedio de gastos del mes: ${promedio:.2f}")
-    unidades, superficies = ordenar_descendente(unidades, superficies)
-    mostrar_tabla(unidades, superficies)
+
+    # Mostrar descendente
+    unidades_desc, superficies_desc = ordenar_descendente(
+        unidades.copy(), superficies.copy())
+    mostrar_tabla(unidades_desc, superficies_desc,
+                  "Listado ordenado por superficie (mayor a menor):")
+
+    # Mostrar ascendente
+    unidades_asc, superficies_asc = ordenar_ascendente(
+        unidades.copy(), superficies.copy())
+    mostrar_tabla(unidades_asc, superficies_asc,
+                  "Listado ordenado por superficie (menor a mayor):")
