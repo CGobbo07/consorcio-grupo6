@@ -1,28 +1,22 @@
-# Administradora de Consorcios – Sistema de Cálculo de Expensas
-
-### Autores: Grupo 6
-
-### Fecha: 29/05/25
-
-### Lenguaje: Python
+# :department_store: Administradora de Consorcios – Sistema de Cálculo de Expensas :department_store:
 
 ## Descripción
 
-Este proyecto implementa un sistema sencillo para una administradora de consorcios que gestiona las expensas de un edificio de 20 departamentos.
+Este proyecto implementa un sistema sencillo en [Python](https://www.python.org/) para una administradora de consorcios que gestiona las expensas de un edificio de 20 departamentos.
 
 Permite ingresar los números de unidad y sus superficies, calcula el gasto mensual de expensas según el valor del metro cuadrado, informa el promedio general y presenta un listado ordenado de mayor a menor según la superficie de cada unidad.
 
 ## Funcionalidades principales
 
-- Ingreso de datos validados (sin duplicados).
+- :white_check_mark: Ingreso de datos validados (sin duplicados).
 
-- Cálculo automático de gasto mensual por unidad.
+- :white_check_mark: Cálculo automático de gasto mensual por unidad.
 
-- Cálculo del promedio general de gastos.
+- :white_check_mark: Cálculo del promedio general de gastos.
 
-- Ordenamiento manual descendente por superficie usando método burbuja.
+- :white_check_mark: Ordenamiento manual descendente por superficie usando método burbuja.
 
-- Visualización clara de resultados en consola.
+- :white_check_mark: Visualización clara de resultados en consola.
 
 ## Conceptos técnicos implementados
 
@@ -38,7 +32,7 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 
 - Salida formateada en consola (`print` con decimales).
 
-## Requisitos
+## :hammer_and_wrench: Requisitos :hammer_and_wrench:
 
 - Python 3.9.6
 
@@ -50,7 +44,7 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 
 | Programa           |                                             |
 | ------------------ | ------------------------------------------- |
-| main.py        | Programa en python |
+| main.py            | Programa en python                          |
 | readme.md          | Archivo con instrucciones y guia de usuario |
 | requerimientos.txt | Archivo con instalador de librerias         |
 
@@ -67,3 +61,10 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 - `python main.py`
 
 4. Cargar los datos y correr el programa
+
+### Autores: Grupo 8
+
+- Gobbo Carlos Lautaro
+- Ejarque Sasha Armin
+- Kidyba Lautaro Agustin
+- Cairo Mariana
