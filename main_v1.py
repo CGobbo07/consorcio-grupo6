@@ -10,7 +10,7 @@ from utils import (
 )
 
 if __name__ == "__main__":
-    cantidad_unidades = pedir_num_entero("Ingrese la cantidad de departamentos: ")
+    cantidad_unidades = pedir_num_entero("Ingrese la cantidad de departamentos. Máximo 20: ")
     valor_metro2 = pedir_num_decimal("Ingrese el valor de gasto por metro cuadrado: ")
 
     lista_unidades, lista_superficies = ingresar_datos(cantidad_unidades)
