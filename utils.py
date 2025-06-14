@@ -1,8 +1,8 @@
 # Dependendencia del archivo final
 def pedir_num_entero(mensaje):
     num = input(mensaje)
-    while not num.isdigit():
-        print("Debe ingresar un número entero positivo.")
+    while not num.isdigit() or int(num)<= 0:
+        print("Debe ingresar un número mayor a 0.")
         num = input(mensaje)
     return int(num)
 

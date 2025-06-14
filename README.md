@@ -42,11 +42,14 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 
 ## Estructura del proyecto
 
-| Programa           |                                             |
-| ------------------ | ------------------------------------------- |
-| main.py            | Programa en python                          |
-| readme.md          | Archivo con instrucciones y guia de usuario |
-| requerimientos.txt | Archivo con instalador de librerias         |
+| Programa           |                                                                 |
+| ------------------ | --------------------------------------------------------------- |
+| main_v1.py         | Programa en python - Versión final                              |
+| main_v1.py         | Programa en python - version 1                                  |
+| main_v3.py         | Programa en python - version 3                                  |
+| readme.md          | Archivo con instrucciones y guia de usuario                     |
+| requerimientos.txt | Archivo con instalador de librerias necesario para la version 3 |
+| utils.py           | Funciones auxiliares para el porgrama main.py                   |
 
 ## Manual de uso
 
@@ -58,7 +61,7 @@ Permite ingresar los números de unidad y sus superficies, calcula el gasto mens
 
 3. Ejecutar el programa
 
-- `python main.py`
+- `python main.py` o `python main_v1.py` o `python main_v3.py`
 
 4. Cargar los datos y correr el programa
 
