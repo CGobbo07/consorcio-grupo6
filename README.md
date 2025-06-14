@@ -43,7 +43,7 @@ En la rama `main` se encuentra la versión final del proyecto que tiene la sigui
 | Programa   |                                                     |
 | ---------- | --------------------------------------------------- |
 | main_v1.py | Programa en python                                  |
-| README.    | Archivo con instrucciones y guia de usuario         |
+| README.md  | Archivo con instrucciones y guia de usuario         |
 | utils.py   | Funciones auxiliares para el desarrollo de programa |
 
 En la rama `test` se incluyen tres versiones en las cuales resolvimos el programa.
@@ -60,9 +60,11 @@ En la rama `test` se incluyen tres versiones en las cuales resolvimos el program
 
 4. Para ver las diferentes versiones cambiar de rama con `git checkout test`.
 
-5. En la rama `test`, es necesario para el archivo `main_v3.py` agregar las dependecias externas:
+5. En la rama `test`, es necesario para el archivo `main_v3.py` agregar las dependencias externas:
 
 - `pip install -r requerimientos.txt`
+
+6. Elegir la versión a probar.
 
 ### Autores: Grupo 8
 
