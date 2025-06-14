@@ -1,14 +1,38 @@
 # Dependendencia del archivo final
+def pedir_num_entero(mensaje):
+    num = input(mensaje)
+    while not num.isdigit() or int(num)<= 0:
+        print("Debe ingresar un número mayor a 0.")
+        num = input(mensaje)
+    return int(num)
+
+def pedir_num_decimal(mensaje): 
+    es_dato_valido = False
+    while not es_dato_valido:
+        valor_ingresado = input(mensaje)
+        
+        try:
+            numero = float(valor_ingresado)
+            if numero > 0:
+                es_dato_valido = True
+                resultado = numero
+            else:
+                print("Debe ingresar un número mayor a 0.")
+        except ValueError:
+            print("Debe ingresar un número mayor a 0.")
+    
+    return resultado
+
 def ingresar_datos(cantidad_unidades):
     lista_unidades = []
     lista_superficies = []
     i = 0
     while i < cantidad_unidades:
-        numero = int(input(f"Unidad #{i+1} - Ingrese número de unidad: "))
+        numero = pedir_num_entero(f"Unidad #{i+1} - Ingrese número de unidad: ")
         if numero in lista_unidades:
             print("Número de unidad ya ingresado. Ingrese otro.")
             continue
-        superficie = float(input("Ingrese la superficie en m2: "))
+        superficie = pedir_num_decimal("Ingrese la superficie en m2: ")
         lista_unidades.append(numero)
         lista_superficies.append(superficie)
         i += 1

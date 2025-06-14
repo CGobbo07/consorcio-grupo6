@@ -1,17 +1,40 @@
 # Programa con librerias importadas, libreria tabulate
 from tabulate import tabulate
 
+def pedir_num_entero(mensaje):
+    num = input(mensaje)
+    while not num.isdigit() or int(num)<= 0:
+        print("Debe ingresar un número mayor a 0.")
+        num = input(mensaje)
+    return int(num)
+
+def pedir_num_decimal(mensaje): 
+    es_dato_valido = False
+    while not es_dato_valido:
+        valor_ingresado = input(mensaje)
+        
+        try:
+            numero = float(valor_ingresado)
+            if numero > 0:
+                es_dato_valido = True
+                resultado = numero
+            else:
+                print("Debe ingresar un número mayor a 0.")
+        except ValueError:
+            print("Debe ingresar un número mayor a 0.")
+    
+    return resultado
 
 def ingresar_datos(cantidad):
     unidades = []
     superficies = []
     i = 0
     while i < cantidad:
-        nro = int(input(f"Unidad #{i+1} - Ingrese numero de unidad: "))
+        nro = pedir_num_entero(f"Unidad #{i+1} - Ingrese numero de unidad: ")
         if nro in unidades:
             print("Numero de unidad ya ingresado. Ingrese otro.")
             continue
-        sup = float(input("Ingrese la superficie en m2: "))
+        sup = pedir_num_decimal("Ingrese la superficie en m2: ")
         unidades.append(nro)
         superficies.append(sup)
         i += 1
@@ -40,8 +63,10 @@ def mostrar_tabla(unidades, superficies):
 
 
 if __name__ == "__main__":
-    cantidad = int(input("Ingrese la cantidad de departamentos: "))
-    valor_m2 = float(input("Ingrese el valor de gasto por metro cuadrado: "))
+    cantidad = pedir_num_entero("Ingrese la cantidad de departamentos (máximo 20): ")
+    while cantidad <= 0 or cantidad > 20:
+        cantidad = pedir_num_entero("Ingrese la cantidad de departamentos, tiene que ingresar un número mayor a 0. Máximo 20: ")
+    valor_m2 = pedir_num_decimal("Ingrese el valor de gasto por metro cuadrado: ")
     unidades, superficies = ingresar_datos(cantidad)
     promedio, gastos = calcular_promedio(superficies, valor_m2)
     print(f"\nPromedio de gastos del mes: ${promedio:.2f}")

@@ -1,15 +1,39 @@
 # Programa con las funciones incluidas, sin tabulate ni librerias importadas
 
+def pedir_num_entero(mensaje):
+    num = input(mensaje)
+    while not num.isdigit() or int(num)<= 0:
+        print("Debe ingresar un número mayor a 0.")
+        num = input(mensaje)
+    return int(num)
+
+def pedir_num_decimal(mensaje): 
+    es_dato_valido = False
+    while not es_dato_valido:
+        valor_ingresado = input(mensaje)
+        
+        try:
+            numero = float(valor_ingresado)
+            if numero > 0:
+                es_dato_valido = True
+                resultado = numero
+            else:
+                print("Debe ingresar un número mayor a 0.")
+        except ValueError:
+            print("Debe ingresar un número mayor a 0.")
+    
+    return resultado
+
 def ingresar_datos(cantidad_unidades):
     lista_unidades = []
     lista_superficies = []
     i = 0
     while i < cantidad_unidades:
-        numero = int(input(f"Unidad #{i+1} - Ingrese número de unidad: "))
+        numero = pedir_num_entero(f"Unidad #{i+1} - Ingrese número de unidad: ")
         if numero in lista_unidades:
             print("Número de unidad ya ingresado. Ingrese otro.")
             continue
-        superficie = float(input("Ingrese la superficie en m2: "))
+        superficie = pedir_num_decimal("Ingrese la superficie en m2: ")
         lista_unidades.append(numero)
         lista_superficies.append(superficie)
         i += 1
@@ -56,9 +80,10 @@ def mostrar_tabla(lista_unidades, lista_superficies, lista_gastos, titulo_tabla)
 
 
 if __name__ == "__main__":
-    cantidad_unidades = int(input("Ingrese la cantidad de departamentos: "))
-    valor_metro2 = float(
-        input("Ingrese el valor de gasto por metro cuadrado: "))
+    cantidad_unidades = pedir_num_entero("Ingrese la cantidad de departamentos. Máximo 20: ")
+    while cantidad_unidades <= 0 or cantidad_unidades > 20:
+        cantidad_unidades = pedir_num_entero("Ingrese la cantidad de departamentos, tiene que ingresar un número mayor a 0. Máximo 20: ")
+    valor_metro2 = pedir_num_decimal("Ingrese el valor de gasto por metro cuadrado: ")
     lista_unidades, lista_superficies = ingresar_datos(cantidad_unidades)
     promedio_gastos, lista_gastos = calcular_promedio(
         lista_superficies, valor_metro2)
