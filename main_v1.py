@@ -5,12 +5,13 @@ from utils import (
     ordenar_descendente,
     ordenar_ascendente,
     mostrar_tabla,
+    pedir_num_entero,
+    pedir_num_decimal,
 )
 
 if __name__ == "__main__":
-    cantidad_unidades = int(input("Ingrese la cantidad de departamentos: "))
-    valor_metro2 = float(
-        input("Ingrese el valor de gasto por metro cuadrado: "))
+    cantidad_unidades = pedir_num_entero("Ingrese la cantidad de departamentos. Máximo 20: ")
+    valor_metro2 = pedir_num_decimal("Ingrese el valor de gasto por metro cuadrado: ")
 
     lista_unidades, lista_superficies = ingresar_datos(cantidad_unidades)
     promedio_gastos, lista_gastos = calcular_promedio(
