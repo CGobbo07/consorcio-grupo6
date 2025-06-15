@@ -1,73 +1,67 @@
-# :department_store: Administradora de Consorcios – Sistema de Cálculo de Expensas :department_store:
+# UADE - Fundamentos de la Informática (FDI) - Grupo 8
+
+Repositorio de trabajo práctico correspondiente a la materia **Fundamentos de la Informática** de la carrera _Licenciatura en Tecnología de la Información_ en UADE (1er Cuatrimestre 2025).
 
 ## Descripción
 
-Este proyecto implementa un sistema sencillo en [Python](https://www.python.org/) para una administradora de consorcios que gestiona las expensas de un edificio de 20 departamentos.
+El proyecto simula un sistema básico para una administradora de consorcios. Permite cargar información sobre unidades de un edificio (número y superficie), calcular sus gastos mensuales de expensas según un valor fijo por metro cuadrado, y ordenarlas según la superficie.
 
-Permite ingresar los números de unidad y sus superficies, calcula el gasto mensual de expensas según el valor del metro cuadrado, informa el promedio general y presenta un listado ordenado de mayor a menor según la superficie de cada unidad.
+## Conceptos aplicados
 
-## Funcionalidades principales
+Este trabajo pone en práctica los temas vistos en clase:
 
-- :white_check_mark: Ingreso de datos validados (sin duplicados).
-
-- :white_check_mark: Cálculo automático de gasto mensual por unidad.
-
-- :white_check_mark: Cálculo del promedio general de gastos.
-
-- :white_check_mark: Ordenamiento manual descendente por superficie usando método burbuja.
-
-- :white_check_mark: Visualización clara de resultados en consola.
-
-## Conceptos técnicos implementados
-
-- Estructuras de datos: listas paralelas (`unidades`, `superficies`).
-
-- Estructuras de control: bucles `while`, `for`.
-
-- Validación de datos con `if`.
-
-- Operaciones matemáticas sobre listas (cálculo de gastos y promedios).
-
-- Algoritmo de ordenamiento manual (burbuja).
-
-- Salida formateada en consola (`print` con decimales).
-
-## :hammer_and_wrench: Requisitos :hammer_and_wrench:
-
-- Python 3.9.6
-
-- Instalar dependencias con:
-
-- `pip install -r requerimientos.txt`
+- Uso de funciones y modularización (`utils.py`)
+- Validación de datos
+- Estructuras de control (`if`, `while`, `for`)
+- Estructuras de datos: listas paralelas
+- Cálculo de promedios y multiplicaciones
+- Ordenamiento burbuja descendente
+- Salida formateada por consola
+- Separación de lógica en módulos reutilizables
 
 ## Estructura del proyecto
 
-| Programa           |                                                                 |
-| ------------------ | --------------------------------------------------------------- |
-| main_v1.py         | Programa en python - Versión final                              |
-| main_v1.py         | Programa en python - version 1                                  |
-| main_v3.py         | Programa en python - version 3                                  |
-| readme.md          | Archivo con instrucciones y guia de usuario                     |
-| requerimientos.txt | Archivo con instalador de librerias necesario para la version 3 |
-| utils.py           | Funciones auxiliares para el porgrama main.py                   |
+| Archivos    | Contenido                                                |
+| ----------- | -------------------------------------------------------- |
+| main.py     | Versión principal en consola                             |
+| main_gui.py | Versión con interfaz gráfica en Tkinter                  |
+| utils.py    | Funciones auxiliares: cálculo, ordenamiento y validación |
+| README.md   | Documentación del proyecto                               |
 
-## Manual de uso
+## Ejecución
 
-1. Clonar el repositorio o descargar los archivos.
+### Desde consola (modo texto)
 
-2. Instalar los requisitos y librerias, ya que sino no tendra un correcto funcionamiento.
+    python main.py
+    El programa solicitará:
+    -   Número de unidad
+    -   Superficie en m²
+    -   Valor del metro cuadrado
+    Y mostrará:
+    -   Gasto por unidad
+    -   Promedio general
+    -   Listado ordenado de mayor a menor por superficie
 
-- `pip install -r requerimientos.txt`
+### Desde interfaz gráfica (opcional)
 
-3. Ejecutar el programa
+    python main_gui.py
+    Se abre una ventana donde se pueden:
 
-- `python main.py` o `python main_v1.py` o `python main_v3.py`
+    -   Ingresar unidades y superficies
 
-4. Cargar los datos y correr el programa
+    -   Ingresar el valor del m²
 
-### Autores: Grupo 8
+    -   Calcular automáticamente gastos y promedio
 
-- Gobbo Carlos Lautaro
-- Ejarque Sasha Armin
-- Kidyba Lautaro Agustin
-- Cairo Mariana
+    -   Visualizar una tabla ordenada de resultados
+
+## 🛠️ Requisitos
+
+- Python 3.9 o superior
+- No requiere librerías externas (Tkinter viene incluido con Python)
+
+## 📌 Créditos
+
+**Grupo 8 - UADE**  
+Materia: Fundamentos de la Informática  
+Año: 2025
